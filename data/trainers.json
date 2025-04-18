@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Ash",
+    "region": "Kanto",
+    "pokemonTeam": [
+      {
+        "id": 25,
+        "name": "Pikachu",
+        "type": "electric",
+        "moves": [
+          {
+            "name": "thunderbolt",
+            "effect": "Has a 10% chance to paralyze the target."
+          },
+          {
+            "name": "quick-attack",
+            "effect": "Inflicts regular damage with no additional effect."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Charizard",
+        "type": "fire",
+        "moves": [
+          {
+            "name": "flamethrower",
+            "effect": "Has a 10% chance to burn the target."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Misty",
+    "region": "Kanto",
+    "pokemonTeam": [
+      {
+        "id": 120,
+        "name": "Staryu",
+        "type": "water",
+        "moves": [
+          {
+            "name": "water-gun",
+            "effect": "Inflicts regular damage with no additional effect."
+          }
+        ]
+      },
+      {
+        "id": 121,
+        "name": "Starmie",
+        "type": "water",
+        "moves": [
+          {
+            "name": "bubble-beam",
+            "effect": "Has a 10% chance to lower the target's Speed by one stage."
+          }
+        ]
+      }
+    ]
+  }
+]

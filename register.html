@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Entrenador</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <h1>Registrar Nuevo Entrenador</h1>
+    <a href="index.html">Volver</a>
+  </header>
+  
+  <main>
+    <form id="trainer-form">
+      <div>
+        <label for="name">Nombre del Entrenador:</label>
+        <input type="text" id="name" required>
+      </div>
+      
+      <div>
+        <label for="region">Región:</label>
+        <input type="text" id="region" required>
+      </div>
+      
+      <h2>Selecciona tu equipo (6 Pokémon)</h2>
+      <div id="selected-count">0/6 seleccionados</div>
+      
+      <div class="pagination">
+        <button type="button" id="prev-page">Anterior</button>
+        <span id="page-info">Página 1 de 10</span>
+        <button type="button" id="next-page">Siguiente</button>
+      </div>
+      
+      <div id="pokemon-grid"></div>
+      
+      <button type="submit">Registrar Entrenador</button>
+    </form>
+  </main>
+  
+  <script src="js/storage.js"></script>
+  <script src="js/trainer.js"></script>
+  <script src="js/pokemon.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

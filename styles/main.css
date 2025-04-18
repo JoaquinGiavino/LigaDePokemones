@@ -1,0 +1,437 @@
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #34495e;
+  --light-color: #ecf0f1;
+  --accent-color: #7f8c8d;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --selection-glow: rgba(44, 62, 80, 0.2);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Encabezado */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+/* Botones */
+button, .button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+button:hover, .button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Tarjetas de Entrenadores */
+.trainers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.trainer-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.trainer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.trainer-header {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 1.2rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.trainer-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.trainer-header p {
+  margin: 0.3rem 0 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+/* Equipo Pokémon */
+.pokemon-team {
+  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  background-color: #f8f9fa;
+}
+
+.pokemon-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.pokemon-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3rem;
+}
+
+/* Formulario de Registro */
+.register-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+.trainer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+.form-group input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(127, 140, 141, 0.2);
+}
+
+/* Paginación */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.page-button {
+  background-color: var(--light-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.page-button:hover {
+  background-color: #d5dbdb;
+}
+
+.page-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+/* Grid de Pokémon - Efectos Mejorados */
+#pokemon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+  padding-bottom: 15px;
+}
+
+.pokemon-selection-card {
+  flex: 0 0 auto;
+  width: 120px;
+  background-color: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.pokemon-selection-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  border-color: var(--accent-color);
+}
+
+/* Estado seleccionado */
+.pokemon-selection-card.selected {
+  animation: cardSelected 0.6s ease forwards;
+  border: 2px solid var(--primary-color);
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+  box-shadow: 0 5px 15px var(--selection-glow);
+}
+
+@keyframes cardSelected {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.05); }
+  100% { transform: translateY(-3px) scale(1.03); }
+}
+
+/* Indicador "Seleccionado" */
+.pokemon-selection-card.selected::after {
+  content: "✓ SELECCIONADO";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 3px 6px;
+  border-radius: 10px;
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  animation: fadeIn 0.3s ease-out;
+  z-index: 2;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Efecto de halo */
+.pokemon-selection-card.selected::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 8px;
+  background: radial-gradient(circle at center, rgba(44, 62, 80, 0.1) 0%, transparent 70%);
+  animation: pulseGlow 2s infinite;
+  z-index: 1;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.9; }
+}
+
+/* Imagen del Pokémon seleccionado */
+.pokemon-selection-card.selected img {
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 3px 5px rgba(44, 62, 80, 0.2));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.pokemon-selection-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.pokemon-selection-card p {
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* Contador de selección mejorado */
+.selected-counter {
+  position: relative;
+  display: inline-block;
+  padding: 8px 16px;
+  background: white;
+  border-radius: 20px;
+  font-weight: 600;
+  color: var(--primary-color);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border: 2px solid var(--accent-color);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.selected-counter::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--selection-progress, 0%);
+  height: 100%;
+  background: linear-gradient(90deg, rgba(127, 140, 141, 0.1) 0%, rgba(236, 240, 241, 0.3) 100%);
+  transition: width 0.6s ease;
+  z-index: 0;
+}
+
+/* Tipos de Pokémon mejorados */
+.type-electric { 
+  background-color: #f8f8e0;
+  color: #b0a800;
+  border-left: 3px solid #f0e800;
+}
+
+.type-water { 
+  background-color: #e0f0f8;
+  color: #0077b0;
+  border-left: 3px solid #0090e8;
+}
+
+.type-fire { 
+  background-color: #f8e8e0;
+  color: #c04000;
+  border-left: 3px solid #f05000;
+}
+
+.type-grass { 
+  background-color: #e8f8e0;
+  color: #40a000;
+  border-left: 3px solid #50c000;
+}
+
+.type-normal { 
+  background-color: #f0f0f0;
+  color: #707070;
+  border-left: 3px solid #a0a0a0;
+}
+
+/* Movimientos Pokémon */
+.pokemon-card ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0 0;
+}
+
+.pokemon-card li {
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+  color: #555;
+}
+
+/* Botón de enviar */
+.submit-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submit-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto de shake para el contador */
+.selected-counter.shake {
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+/* Efecto de completado */
+.selected-counter.completed {
+  animation: celebration 0.8s ease;
+  background: linear-gradient(to right, var(--light-color), var(--accent-color));
+  color: white;
+  border-color: var(--primary-color);
+}
+
+@keyframes celebration {
+  0%, 100% { transform: scale(1); }
+  25%, 75% { transform: scale(1.05); }
+  50% { transform: scale(1.08); }
+}
