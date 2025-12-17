@@ -1,20 +1,32 @@
 [
   {
-    "name": "Ash",
+    "name": "Ash Ketchum",
     "region": "Kanto",
+    "specialty": "Aventura",
+    "registrationDate": "2024-12-17",
     "pokemonTeam": [
       {
         "id": 25,
         "name": "Pikachu",
         "type": "electric",
+        "abilities": ["static", "lightning-rod"],
+        "baseStats": {
+          "hp": 35,
+          "attack": 55,
+          "defense": 40
+        },
         "moves": [
           {
-            "name": "thunderbolt",
-            "effect": "Has a 10% chance to paralyze the target."
+            "name": "Thunder Shock",
+            "effect": "Has a chance to paralyze the target",
+            "power": 40,
+            "accuracy": 100
           },
           {
-            "name": "quick-attack",
-            "effect": "Inflicts regular damage with no additional effect."
+            "name": "Quick Attack",
+            "effect": "User attacks first",
+            "power": 40,
+            "accuracy": 100
           }
         ]
       },
@@ -22,10 +34,18 @@
         "id": 6,
         "name": "Charizard",
         "type": "fire",
+        "abilities": ["blaze", "solar-power"],
+        "baseStats": {
+          "hp": 78,
+          "attack": 84,
+          "defense": 78
+        },
         "moves": [
           {
-            "name": "flamethrower",
-            "effect": "Has a 10% chance to burn the target."
+            "name": "Flamethrower",
+            "effect": "May burn the target",
+            "power": 90,
+            "accuracy": 100
           }
         ]
       }
@@ -34,26 +54,106 @@
   {
     "name": "Misty",
     "region": "Kanto",
+    "specialty": "Agua",
+    "registrationDate": "2024-12-17",
     "pokemonTeam": [
       {
         "id": 120,
         "name": "Staryu",
         "type": "water",
+        "abilities": ["illuminate", "natural-cure"],
+        "baseStats": {
+          "hp": 30,
+          "attack": 45,
+          "defense": 55
+        },
         "moves": [
           {
-            "name": "water-gun",
-            "effect": "Inflicts regular damage with no additional effect."
+            "name": "Water Gun",
+            "effect": "No additional effect",
+            "power": 40,
+            "accuracy": 100
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "name": "Brock",
+    "region": "Kanto", 
+    "specialty": "Roca",
+    "registrationDate": "2024-12-17",
+    "pokemonTeam": [
       {
-        "id": 121,
-        "name": "Starmie",
-        "type": "water",
+        "id": 95,
+        "name": "Onix",
+        "type": "rock",
+        "abilities": ["rock-head", "sturdy"],
+        "baseStats": {
+          "hp": 35,
+          "attack": 45,
+          "defense": 160
+        },
         "moves": [
           {
-            "name": "bubble-beam",
-            "effect": "Has a 10% chance to lower the target's Speed by one stage."
+            "name": "Rock Throw",
+            "effect": "No additional effect",
+            "power": 50,
+            "accuracy": 90
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Serena",
+    "region": "Kalos",
+    "specialty": "Performances", 
+    "registrationDate": "2024-12-17",
+    "pokemonTeam": [
+      {
+        "id": 653,
+        "name": "Fennekin",
+        "type": "fire",
+        "abilities": ["blaze", "magician"],
+        "baseStats": {
+          "hp": 40,
+          "attack": 45, 
+          "defense": 40
+        },
+        "moves": [
+          {
+            "name": "Scratch",
+            "effect": "No additional effect",
+            "power": 40,
+            "accuracy": 100
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Cynthia",
+    "region": "Sinnoh",
+    "specialty": "Campeona",
+    "registrationDate": "2024-12-17", 
+    "pokemonTeam": [
+      {
+        "id": 448,
+        "name": "Lucario",
+        "type": "fighting",
+        "abilities": ["steadfast", "inner-focus"],
+        "baseStats": {
+          "hp": 70,
+          "attack": 110,
+          "defense": 70
+        },
+        "moves": [
+          {
+            "name": "Aura Sphere",
+            "effect": "Never misses",
+            "power": 80,
+            "accuracy": null
           }
         ]
       }

@@ -3,45 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registrar Entrenador</title>
+  <title>Registro | Pokémon League</title>
   <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/pokeball.png">
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>Registrar Nuevo Entrenador</h1>
-    <a href="index.html">Volver</a>
+    <div class="header-content">
+      <div class="logo-container">
+        <div class="logo">
+          <span style="color: white;">👤</span>
+        </div>
+        <div class="logo-text">
+          <h1>Registro</h1>
+          <p class="subtitle">Crea tu perfil de entrenador</p>
+        </div>
+      </div>
+      
+      <div class="header-actions">
+        <a href="index.html" class="button secondary">
+          <span class="button-icon">←</span> Volver al Inicio
+        </a>
+      </div>
+    </div>
   </header>
-  
-  <main>
-    <form id="trainer-form">
-      <div>
-        <label for="name">Nombre del Entrenador:</label>
-        <input type="text" id="name" required>
+
+  <!-- Form Container -->
+  <main class="container">
+    <div class="form-container">
+      <form id="trainer-form" class="trainer-form">
+        <!-- Sección Información Personal -->
+        <div class="form-section">
+          <h2>👤 Información Personal</h2>
+          <p class="section-description">
+            Comienza tu viaje como entrenador Pokémon. Completa tu información personal
+            para crear un perfil único en la liga.
+          </p>
+          
+          <div class="form-group">
+            <label for="name">
+              <span class="required">*</span> Nombre del Entrenador:
+            </label>
+            <input type="text" id="name" required 
+                  placeholder="Ej: Ash Ketchum" 
+                  minlength="3" maxlength="50">
+            <div class="help-text">Usa tu nombre completo (mínimo 3 caracteres)</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="region">
+              <span class="required">*</span> Región de Origen:
+            </label>
+            <input type="text" id="region" required 
+                  placeholder="Ej: Kanto, Johto, Hoenn..." 
+                  minlength="3" maxlength="30">
+            <div class="help-text">Selecciona tu región de procedencia</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="specialty">Especialidad:</label>
+            <input type="text" id="specialty" 
+                  placeholder="Ej: Entrenador de Fuego, Coordinador...">
+            <div class="help-text">¿Cuál es tu especialidad como entrenador?</div>
+          </div>
+        </div>
+        
+        <!-- Sección Selección de Equipo -->
+        <div class="form-section">
+          <h2>⚡ Selecciona tu Equipo Pokémon</h2>
+          <p class="section-description">
+            Elige cuidadosamente 6 Pokémon para tu equipo. Cada selección cuenta 
+            con información en tiempo real obtenida directamente de la PokéAPI.
+          </p>
+          
+          <div class="selection-info">
+            <div id="selected-count" class="selected-counter">0/6 Pokémon seleccionados</div>
+            <div class="search-box">
+              <input type="text" id="pokemon-search" 
+                    placeholder="Buscar Pokémon por nombre o tipo...">
+            </div>
+          </div>
+          
+          <!-- Controles de Paginación -->
+          <div class="pagination-controls">
+            <button type="button" id="prev-page" class="page-button">
+              <span class="button-icon">◀</span> Anterior
+            </button>
+            <span id="page-info" class="page-info">Página 1 de 45</span>
+            <button type="button" id="next-page" class="page-button">
+              Siguiente <span class="button-icon">▶</span>
+            </button>
+          </div>
+          
+          <!-- Loading Indicator -->
+          <div id="loading-indicator" class="loading-indicator" style="display: none;">
+            <div class="spinner"></div>
+            <p>Cargando Pokémon desde la PokéAPI...</p>
+          </div>
+          
+          <!-- Grid de Pokémon -->
+          <div id="pokemon-grid" class="pokemon-selection-grid">
+            <!-- Pokémon se cargarán dinámicamente -->
+          </div>
+        </div>
+        
+        <!-- Botones de Acción -->
+        <div class="form-actions">
+          <button type="submit" class="submit-button">
+            <span class="button-icon">✨</span> Crear Perfil
+          </button>
+          <button type="button" class="reset-button" onclick="document.getElementById('trainer-form').reset()">
+            <span class="button-icon">🔄</span> Limpiar Formulario
+          </button>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Instrucciones -->
+    <div class="form-section" style="margin-top: 3rem;">
+      <h2>📋 Instrucciones de Registro</h2>
+      <div class="instructions-grid">
+        <div class="instruction-card">
+          <div class="instruction-number">1</div>
+          <h3>Completa tu Perfil</h3>
+          <p>Ingresa tu información personal para crear tu identidad como entrenador.</p>
+        </div>
+        <div class="instruction-card">
+          <div class="instruction-number">2</div>
+          <h3>Selecciona tu Equipo</h3>
+          <p>Elige 6 Pokémon que complementen tu estilo de entrenamiento.</p>
+        </div>
+        <div class="instruction-card">
+          <div class="instruction-number">3</div>
+          <h3>Confirma Registro</h3>
+          <p>Tu equipo será guardado y podrás comenzar tu aventura.</p>
+        </div>
       </div>
-      
-      <div>
-        <label for="region">Región:</label>
-        <input type="text" id="region" required>
-      </div>
-      
-      <h2>Selecciona tu equipo (6 Pokémon)</h2>
-      <div id="selected-count">0/6 seleccionados</div>
-      
-      <div class="pagination">
-        <button type="button" id="prev-page">Anterior</button>
-        <span id="page-info">Página 1 de 10</span>
-        <button type="button" id="next-page">Siguiente</button>
-      </div>
-      
-      <div id="pokemon-grid"></div>
-      
-      <button type="submit">Registrar Entrenador</button>
-    </form>
+    </div>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Los datos de Pokémon son obtenidos en tiempo real de <a href="https://pokeapi.co/" target="_blank">PokéAPI</a></p>
+    <p class="footer-note">Sistema de Gestión Pokémon | Todos los derechos reservados</p>
+  </footer>
+
   
-  <script src="js/storage.js"></script>
-  <script src="js/trainer.js"></script>
+  <!-- Estilos adicionales para register.html -->
+  <style>
+    .feature-grid, .instructions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .feature-card, .instruction-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius-md);
+      padding: 1.5rem;
+      transition: var(--transition-smooth);
+      border: 1px solid transparent;
+    }
+    
+    .feature-card:hover, .instruction-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--glass-border);
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-card h3, .instruction-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    
+    .feature-card p, .instruction-card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    
+    .instruction-number {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+
+    <!-- Scripts -->
   <script src="js/pokemon.js"></script>
+  <script src="js/trainer.js"></script>
+  <script src="js/storage.js"></script>
   <script src="js/register.js"></script>
+
+  <script>
+console.log('=== DEBUG: Antes de register.js ===');
+console.log('Document readyState:', document.readyState);
+console.log('Elementos encontrados:');
+console.log('  trainer-form:', document.getElementById('trainer-form'));
+console.log('  prev-page:', document.getElementById('prev-page'));
+console.log('  next-page:', document.getElementById('next-page'));
+
+// Verificar errores en scripts anteriores
+window.addEventListener('error', function(e) {
+    console.error('❌ ERROR GLOBAL:', e.message, 'en', e.filename);
+});
+</script>
+
 </body>
 </html>

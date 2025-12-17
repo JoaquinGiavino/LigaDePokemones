@@ -3,22 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liga Pokémon - Entrenadores</title>
+  <title>Pokémon League | Gestión de Entrenadores</title>
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/pokeball.png">
 </head>
 <body>
+  <!-- Header Elegante -->
   <header>
-    <h1>Liga Pokémon</h1>
-    <button id="register-btn">Registrar Entrenador</button>
+    <div class="header-content">
+      <div class="logo-container">
+        <div class="logo">
+          <span style="color: white;">⚡</span>
+        </div>
+        <div class="logo-text">
+          <h1>Pokémon League</h1>
+          <p class="subtitle">Gestión Profesional de Entrenadores</p>
+        </div>
+      </div>
+      
+      <div class="header-actions">
+        <button id="register-btn" class="button primary">
+          <span class="button-icon">👤</span> Nuevo Entrenador
+        </button>
+        <button onclick="exportData()" class="button secondary" title="Exportar datos">
+          <span class="button-icon">📊</span> Exportar
+        </button>
+      </div>
+    </div>
   </header>
-  
-  <main>
-    <div id="trainers-container" class="trainers-grid"></div>
+
+  <!-- Hero Section -->
+  <main class="container">
+    <section class="hero-section">
+      <h1 class="hero-title">Pokemon League</h1>
+      <p class="hero-subtitle">
+        Gestiona entrenadores y sus equipos Pokémon con datos reales de la API
+      </p>
+      
+    </section>
+
+    <!-- Loading Indicator -->
+    <div id="loading" class="loading-indicator">
+      <div class="spinner"></div>
+      <p>Cargando datos desde servidor...</p>
+    </div>
+
+    <!-- Trainer Cards Grid -->
+    <section id="trainers-container" class="trainers-grid">
+      <!-- Las cards se generarán dinámicamente -->
+    </section>
   </main>
-  
-  <script src="js/storage.js"></script>
-  <script src="js/trainer.js"></script>
+
+  <!-- Footer Elegante -->
+  <footer>
+    <p>Desarrollado con ❤️ para la Liga Pokémon</p>
+    <p class="footer-note">
+      Pokémon data provided by <a href="https://pokeapi.co/" target="_blank">PokéAPI</a> | 
+      Trabajo Práctico - Aplicación Web con API | JavaScript ES6
+    </p>
+  </footer>
+
+  <!-- Scripts -->
   <script src="js/pokemon.js"></script>
+  <script src="js/trainer.js"></script>
+  <script src="js/storage.js"></script>
+  <script>
+    
+    // Export function
+    window.exportData = async function() {
+      try {
+        const trainers = await StorageHandler.loadTrainers();
+        const data = JSON.stringify(trainers.map(t => t.toJSON()), null, 2);
+        const blob = new Blob([data], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `entrenadores_${new Date().toISOString().slice(0,10)}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        alert('✅ Datos exportados exitosamente');
+      } catch (error) {
+        alert('❌ Error exportando datos');
+      }
+    };
+  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
